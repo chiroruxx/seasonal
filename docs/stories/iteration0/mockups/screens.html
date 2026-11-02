@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>旬なもの — 画面ラフ</title>
+<style>
+:root{--primary:#8b5000;--on-primary:#fff;--primary-container:#ffddb8;--on-primary-container:#2c1600;--surface:#fff2da;--on-surface:#211a14;--surface-container-low:#fffaf0;--surface-container:#f5e6ce;--on-surface-variant:#51453a;--outline-variant:#d5c3b3}
+*{box-sizing:border-box}body{margin:0;background:#e9e2da;color:var(--on-surface);font-family:system-ui,sans-serif;line-height:1.6}.note{max-width:760px;margin:24px auto;padding:0 20px;color:#51453a;font-size:14px}.phone{max-width:412px;margin:20px auto 48px;background:var(--surface);border-radius:28px;overflow:hidden;box-shadow:0 12px 45px #402c1718;min-height:760px}header{padding:22px 24px 12px;display:flex;align-items:center;gap:12px}header strong{font-size:22px;font-weight:650}main{padding:8px 20px 32px}.month{font-size:14px;color:var(--on-surface-variant);margin:4px 0}h1{font-size:28px;line-height:1.35;margin:8px 0 24px}h2{font-size:22px;font-weight:650;margin:26px 0 14px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.food{font:inherit;text-align:center;cursor:pointer;border:0;border-radius:16px;padding:12px 8px 16px;background:var(--surface-container-low);color:var(--on-surface);min-width:0}.food img{display:block;width:100%;height:120px;object-fit:contain}.food span{font-size:19px;font-weight:600}.food:hover{background:var(--primary-container)}button:focus-visible{outline:3px solid var(--primary);outline-offset:3px}.caption{color:var(--on-surface-variant);font-size:14px;margin:-8px 0 16px}.back{border:0;border-radius:50%;width:48px;height:48px;flex-shrink:0;background:transparent;color:var(--on-surface);font-size:28px;cursor:pointer}.back:hover{background:var(--surface-container)}.tip{background:var(--surface-container);border-radius:20px;margin:16px 0;padding:20px}.tip img{display:block;width:100%;height:220px;object-fit:contain}.tip p{font-size:20px;margin:12px 0 0}.tip small{color:var(--on-surface-variant)}.season{background:var(--primary-container);color:var(--on-primary-container);padding:16px 20px;border-radius:16px;font-size:18px}.sample{font-size:12px;color:var(--on-surface-variant);margin-top:28px}svg{overflow:visible}[hidden]{display:none!important}@media(max-width:460px){body{background:var(--surface)}.phone{margin:0;max-width:none;border-radius:0;box-shadow:none}.note{margin:12px 0}}
+
+.sheet{position:fixed;inset:auto 0 0;margin:0 auto;width:min(100%,412px);max-width:100%;max-height:90dvh;padding:0;border:0;border-radius:28px 28px 0 0;background:var(--surface-container);color:var(--on-surface);overflow:auto;overscroll-behavior:contain;box-shadow:0 -8px 32px #211a1420}
+.sheet::backdrop{background:rgb(0 0 0 / .32)}
+.sheet[open]{animation:slide-in .2s ease-out}.sheet header{padding-top:0}.sheet .tip{background:var(--surface-container-low)}
+.drag-handle{display:flex;width:100%;height:32px;align-items:center;justify-content:center;touch-action:none;cursor:grab}
+.drag-handle::before{content:"";width:32px;height:4px;background:var(--on-surface-variant);opacity:.4;border-radius:2px}
+.sheet header strong{flex:1}.sheet h1{font-size:24px;margin-bottom:16px}
+@keyframes slide-in{from{transform:translateY(100%)}to{transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.sheet[open]{animation:none}}
+.app-name{position:relative;display:inline-block;padding:0 2px 10px;font-family:'Hiragino Maru Gothic ProN','Yu Gothic',sans-serif;font-size:31px;font-weight:700;letter-spacing:2px;color:#9b5424;line-height:1.5}
+.app-name::after{content:"";position:absolute;left:2px;right:2px;bottom:0;height:10px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 10'%3E%3Cpath d='M3 3 Q80 12 157 3' fill='none' stroke='%23dba565' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M5 5 Q80 10 155 5' fill='none' stroke='%23ecc38a' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+header .app-name{font-size:31px}
+</style>
+<p class="note">画面ラフ · 食材を押すと下から詳細が開きます。11月の配置例です。絵・旬・選び方の文章は検討用サンプルで、公開用データではありません。</p>
+<div class="phone">
+<section id="list"><header><strong class="app-name">旬なもの</strong></header><main><p class="month">11月</p><h1>いまが 旬</h1><div class="grid" id="now"></div><h2>そろそろ 旬</h2><p class="caption">らいげつから</p><div class="grid" id="soon"></div><p class="sample">旬の じきは、さんちなどで かわります。</p></main></section>
+<dialog id="detail" class="sheet" aria-labelledby="food-name"><div class="drag-handle" id="drag-handle" aria-hidden="true"></div><header><strong id="food-name"></strong><button class="back" aria-label="とじる" id="back" autofocus>×</button></header><main><h1>えらびかた</h1><div class="tip"><div id="diagram"></div><p id="tip"></p></div><h2>旬の じき</h2><div class="season" id="months"></div><p class="sample">選び方・旬の月はレイアウト確認用です。掲載前に出典を確認します。</p></main></dialog>
+</div>
+<script>
+const foods=[{id:'radish',name:'だいこん',tip:'はりの ある はっぱに ちゅうもく',months:'11月 〜 2月'},{id:'fish',name:'さば',tip:'めの ようすを みてみよう',months:'10月 〜 12月'},{id:'apple',name:'りんご',tip:'かわの ようすを みてみよう',months:'10月 〜 12月'},{id:'carrot',name:'にんじん',tip:'いろと かたちを みてみよう',months:'12月 〜 2月'}];
+let selectedButton;
+const art=id=>`<img src="assets/${id}-list-v2.png" alt="" width="160" height="120">`;
+foods.forEach((food,i)=>{const b=document.createElement('button');b.className='food';b.innerHTML=art(food.id)+`<span>${food.name}</span>`;b.onclick=()=>{selectedButton=b;document.querySelector('#food-name').textContent=food.name;document.querySelector('#tip').textContent=food.tip;document.querySelector('#months').textContent=food.months;document.querySelector('#diagram').innerHTML=`<img src="assets/${food.id}-detail-v2.png" alt="${food.name}の選び方の注目箇所を示す色鉛筆イラスト" width="300" height="220">`;openSheet()};document.querySelector(i===3?'#soon':'#now').append(b)});
+const sheet=document.querySelector('#detail');
+let savedScroll=0;
+let previousOverflow='';
+function openSheet(){savedScroll=window.scrollY;previousOverflow=document.body.style.overflow;document.body.style.overflow='hidden';sheet.showModal();sheet.scrollTop=0;}
+function closeSheet(){sheet.close();}
+document.querySelector('#back').onclick=closeSheet;
+sheet.addEventListener('close',()=>{document.body.style.overflow=previousOverflow;selectedButton?.focus({preventScroll:true});window.scrollTo(0,savedScroll);});
+// Only a gesture starting outside the sheet counts as a backdrop tap.
+let backdropStart=false;
+sheet.addEventListener('pointerdown',e=>{const r=sheet.getBoundingClientRect();backdropStart=e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom;});
+sheet.addEventListener('click',e=>{const r=sheet.getBoundingClientRect();if(backdropStart&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom))closeSheet();backdropStart=false;});
+const handle=document.querySelector('#drag-handle');
+let dragStart=null;
+handle.addEventListener('pointerdown',e=>{dragStart=e.clientY;handle.setPointerCapture(e.pointerId);});
+handle.addEventListener('pointerup',e=>{if(dragStart!==null&&e.clientY-dragStart>60)closeSheet();dragStart=null;});
+handle.addEventListener('pointercancel',()=>{dragStart=null;});
+</script>
+</html>

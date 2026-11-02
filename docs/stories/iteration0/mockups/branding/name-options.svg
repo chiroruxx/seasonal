@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080" role="img" aria-labelledby="title desc">
+<title id="title">旬なもの アプリ名のデザイン3案</title>
+<desc id="desc">Aは旬を大きくした文字ロゴ、Bは丸い書体と手描き風の下線、Cは旬と葉を組み合わせた丸いシンボルを添えたロゴ。各案の右側にスマートフォンのヘッダーでの表示例。</desc>
+<defs><style>
+.label{font:500 15px sans-serif;letter-spacing:2px;fill:#8b5000}.title{font:600 23px sans-serif;fill:#211a14}.body{font:16px sans-serif;fill:#51453a}.ui{font:14px sans-serif;fill:#51453a}.word{font-family:'Hiragino Sans','Noto Sans JP',sans-serif}.round{font-family:'Hiragino Maru Gothic ProN','Yu Gothic',sans-serif}
+</style></defs>
+<rect width="1080" height="1080" fill="#eee5d8"/>
+<text x="48" y="51" class="title">「旬なもの」名前の見せ方</text><text x="48" y="81" class="body">暖色の背景・色鉛筆のイラストに合わせた 3 案</text>
+<!-- A -->
+<rect x="32" y="111" width="1016" height="292" rx="24" fill="#fff2da"/>
+<text x="60" y="148" class="label">A / WORDMARK</text><text x="60" y="181" class="title">「旬」を主役に</text>
+<text x="76" y="286" class="word" font-size="94" font-weight="650" fill="#8b5000">旬</text><text x="177" y="284" class="word" font-size="57" font-weight="500" letter-spacing="3" fill="#35251c">なもの</text>
+<text x="60" y="369" class="body">すっきり、読みやすく。文字の大小と色で印象をつける。</text>
+<rect x="650" y="144" width="366" height="219" rx="22" fill="#fffaF0"/><text x="672" y="175" class="ui">画面上部での表示例</text>
+<text x="674" y="232" class="word" font-size="40" font-weight="650" fill="#8b5000">旬</text><text x="717" y="230" class="word" font-size="25" font-weight="500" fill="#35251c">なもの</text>
+<text x="674" y="286" class="ui">11月</text><text x="674" y="326" class="word" font-size="26" font-weight="600" fill="#211a14">いまが 旬</text>
+<!-- B -->
+<rect x="32" y="420" width="1016" height="292" rx="24" fill="#fff2da"/>
+<text x="60" y="457" class="label">B / SOFT LETTERING</text><text x="60" y="490" class="title">絵本のタイトルのように</text>
+<text x="76" y="589" class="round" font-size="72" font-weight="700" letter-spacing="7" fill="#9b5424">旬なもの</text>
+<path d="M83 612 Q220 625 381 610" fill="none" stroke="#dba565" stroke-width="5" stroke-linecap="round"/>
+<path d="M87 615 Q218 622 376 614" fill="none" stroke="#ecc38a" stroke-width="2" stroke-linecap="round"/>
+<text x="60" y="678" class="body">丸い文字と、少しゆれた線。やわらかな親しみ。</text>
+<rect x="650" y="453" width="366" height="219" rx="22" fill="#fffaf0"/><text x="672" y="484" class="ui">画面上部での表示例</text>
+<text x="674" y="536" class="round" font-size="31" font-weight="700" letter-spacing="2" fill="#9b5424">旬なもの</text><path d="M677 548 Q746 554 810 547" fill="none" stroke="#dba565" stroke-width="3" stroke-linecap="round"/>
+<text x="674" y="595" class="ui">11月</text><text x="674" y="635" class="word" font-size="26" font-weight="600" fill="#211a14">いまが 旬</text>
+<!-- C -->
+<rect x="32" y="729" width="1016" height="292" rx="24" fill="#fff2da"/>
+<text x="60" y="766" class="label">C / SYMBOL + NAME</text><text x="60" y="799" class="title">旬のしるしを添える</text>
+<g transform="translate(77 823)"><rect x="0" y="0" width="103" height="103" rx="34" fill="#ffddb8"/><text x="20" y="75" class="round" font-size="65" font-weight="600" fill="#8b5000">旬</text><path d="M75 14Q71-7 91-12Q98 5 75 14" fill="#76875a"/><path d="M76 13 87-4" stroke="#fff2da" fill="none" stroke-width="2"/></g>
+<text x="205" y="898" class="round" font-size="57" font-weight="600" letter-spacing="2" fill="#35251c">旬なもの</text>
+<text x="60" y="987" class="body">小さな葉を添えた「旬」の印。アイコンにも展開しやすい。</text>
+<rect x="650" y="762" width="366" height="219" rx="22" fill="#fffaf0"/><text x="672" y="793" class="ui">画面上部での表示例</text>
+<g transform="translate(674 814) scale(.38)"><rect width="103" height="103" rx="34" fill="#ffddb8"/><text x="20" y="75" class="round" font-size="65" font-weight="600" fill="#8b5000">旬</text><path d="M75 14Q71-7 91-12Q98 5 75 14" fill="#76875a"/></g>
+<text x="725" y="844" class="round" font-size="26" font-weight="600" fill="#35251c">旬なもの</text>
+<text x="674" y="904" class="ui">11月</text><text x="674" y="944" class="word" font-size="26" font-weight="600" fill="#211a14">いまが 旬</text>
+<text x="48" y="1057" class="ui">比較用ラフ · 文字の形は閲覧環境のフォントにより変わります</text>
+</svg>

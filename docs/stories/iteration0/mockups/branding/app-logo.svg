@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">旬なもの アプリロゴ案</title>
+  <rect x="56" y="84" width="400" height="400" rx="132" fill="#ffddb8"/>
+  <text x="256" y="375" text-anchor="middle" font-family="'Hiragino Maru Gothic ProN','Yu Gothic',sans-serif" font-size="252" font-weight="600" fill="#8b5000">旬</text>
+  <path d="M347 139 Q331 57 409 37 Q437 103 347 139" fill="#76875a"/>
+  <path d="M351 135 394 69" stroke="#fff2da" fill="none" stroke-width="8" stroke-linecap="round"/>
+</svg>
