@@ -1,0 +1,32 @@
+# Android アプリの競合初期調査
+
+調査日：2026-11-02。競合調査は Android アプリに限定する。Google Play の公開説明を確認した段階で、インストール・操作検証は未実施。日本のアカウント・端末でのインストール可否、日本語 UI、日本の旬データへの対応は別途確認する。
+
+## 用途が近い競合候補
+
+| アプリ / Google Play | 掲載説明で確認できた内容 | 比較したい点 |
+| --- | --- | --- |
+| [野菜見極め術](https://play.google.com/store/apps/details?hl=ja&id=com.jkscience.yasai) | 野菜・果物・肉・魚の選び方と旬の時期。スーパーなどでの利用を想定 | 今の旬へのアクセス、絵、説明の読みやすさ |
+| [In Season：旬の果物と野菜](https://play.google.com/store/apps/details?hl=ja&id=apace.seasonal) | 月ごとの旬、年間カレンダー、選び方、保存方法、気候帯による調整、通知 | 日本の食材・旬への対応と操作 |
+| [Redberi: Fruit & Produce Guide](https://play.google.com/store/apps/details?hl=ja&id=com.yellowsquared.redberi) | 写真付きの見極め方、地域の旬カレンダー、保存方法 | 日本向け情報、ことば・操作のわかりやすさ |
+
+## 対象地域・用途が異なる参考候補
+
+| アプリ / Google Play | 掲載説明で確認できた内容 | 位置づけ |
+| --- | --- | --- |
+| [Seasonal Food Guide](https://play.google.com/store/apps/details?hl=ja&id=com.gracecommunicationsfoundation.sfgapp) | 米国50州の季節の食材検索、140種類以上の食材、リマインダー | 日本向けの直接競合としてではなく、旬を探す体験の参考 |
+| [旬ちゃんアプリ](https://play.google.com/store/apps/details?hl=ja&id=net.oishii_shinshu.Shunchan) | 長野県のブランド食材図鑑、クイズ、直売所マップ | 日本の地域食材図鑑の参考。月別の旬一覧の有無は未確認 |
+
+## 企画への示唆（仮説）
+
+### ユーザーからの感想と方向性
+
+In Season はやりたいことに非常に近いが、余計な情報が多いと感じたとのこと。主な比較対象とし、Seasonal は情報・機能を絞ったシンプルさを目指す。成分・通知・目標・バッジは不要とする。これはユーザーの感想とプロダクト方針であり、開発側で実機比較を完了したという意味ではない。
+
+Android にも旬や選び方を扱うアプリが存在する。「Android で旬がわかる」だけでは差別化にならない。
+
+Seasonal は「日本のスーパーで、開いてすぐに、食材そのものの図鑑風イラストと小学生にもわかることばで今の旬を選べる体験」を差別化の仮説とする。既存アプリにこの体験がないとは、公開説明だけでは断定できない。
+
+次の比較では、現在月の旬にたどり着くまでの操作、一覧の見分けやすさ、漢字と説明の難しさ、日本の旬データへの対応を確認する。
+
+以前挙げた iOS アプリと Web サービスは、今回の競合比較の対象から外す。エレベーターピッチの競合欄には In Season を採用し、シンプルさを差別化の軸とする。
