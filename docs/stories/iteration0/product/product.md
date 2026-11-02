@@ -4,7 +4,7 @@
 
 競合調査は Android アプリに限定する。[初期調査](competitors.md)とユーザーの感想をもとに、In Season を主な比較対象とする。シンプルさによる差別化は、今後の画面・操作で具体化して検証する。
 
-[エレベーターピッチ](../../product/elevator-pitch.md)を参照。
+[エレベーターピッチ](../../../product/elevator-pitch.md)を参照。
 
 ## 目的
 
