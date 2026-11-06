@@ -1,0 +1,357 @@
+{
+  "schema_version": 2,
+  "description": "scripts/codex_hooks.py が実行する品質チェック一覧。connected はコマンド接続済みを表し、実行成功・host の信頼状態とは別。証跡は .quality-results/。",
+  "checks": [
+    {
+      "id": "kotlin-format",
+      "paths": [
+        "**/*.kt",
+        "**/*.gradle.kts"
+      ],
+      "tool": "Spotless + ktfmt",
+      "events": [
+        "PostToolUse",
+        "Stop"
+      ],
+      "commands": [
+        {
+          "formatter": true,
+          "all": [
+            "./gradlew",
+            "spotlessApply"
+          ],
+          "changed": [
+            "./gradlew",
+            "spotlessApply",
+            "{spotless_files}"
+          ]
+        },
+        {
+          "all": [
+            "./gradlew",
+            "spotlessCheck"
+          ],
+          "changed": [
+            "./gradlew",
+            "spotlessCheck",
+            "{spotless_files}"
+          ]
+        }
+      ],
+      "status": "connected",
+      "timeout": 300
+    },
+    {
+      "id": "android-lint",
+      "paths": [
+        "app/**",
+        "**/*.gradle.kts",
+        "gradle/**"
+      ],
+      "tool": "Android Lint",
+      "events": [
+        "PostToolUse",
+        "Stop"
+      ],
+      "commands": [
+        {
+          "all": [
+            "./gradlew",
+            ":app:lintDebug"
+          ]
+        }
+      ],
+      "status": "connected",
+      "timeout": 300
+    },
+    {
+      "id": "unit-tests",
+      "paths": [
+        "app/**",
+        "**/*.gradle.kts",
+        "gradle/**"
+      ],
+      "tool": "JUnit",
+      "events": [
+        "PostToolUse",
+        "Stop"
+      ],
+      "commands": [
+        {
+          "all": [
+            "./gradlew",
+            ":app:testDebugUnitTest"
+          ]
+        }
+      ],
+      "status": "connected",
+      "timeout": 300
+    },
+    {
+      "id": "acceptance-tests",
+      "paths": [
+        "app/**",
+        "**/*.gradle.kts",
+        "gradle/**"
+      ],
+      "tool": "Compose UI Test + Android 16 managed device",
+      "events": [
+        "PostToolUse",
+        "Stop"
+      ],
+      "commands": [
+        {
+          "all": [
+            "./gradlew",
+            ":app:acceptanceTest"
+          ],
+          "full": [
+            "./gradlew",
+            ":app:acceptanceTest",
+            "-PincludePendingAcceptance=true"
+          ]
+        }
+      ],
+      "status": "connected",
+      "timeout": 1200
+    },
+    {
+      "id": "markdown-format",
+      "paths": [
+        "**/*.md",
+        "package.json",
+        "package-lock.json",
+        ".prettierrc*",
+        ".prettierignore",
+        ".markdownlint*",
+        ".editorconfig",
+        "scripts/markdown.mjs"
+      ],
+      "tool": "Prettier",
+      "events": [
+        "PostToolUse",
+        "Stop"
+      ],
+      "commands": [
+        {
+          "formatter": true,
+          "all": [
+            "npm",
+            "run",
+            "format:markdown"
+          ],
+          "changed": [
+            "npm",
+            "run",
+            "format:markdown",
+            "--",
+            "{files}"
+          ]
+        },
+        {
+          "all": [
+            "npm",
+            "run",
+            "check:markdown"
+          ],
+          "changed": [
+            "npm",
+            "run",
+            "check:markdown",
+            "--",
+            "{files}"
+          ]
+        }
+      ],
+      "status": "connected",
+      "timeout": 300,
+      "file_paths": [
+        "**/*.md"
+      ]
+    },
+    {
+      "id": "markdown-lint",
+      "paths": [
+        "**/*.md",
+        "package.json",
+        "package-lock.json",
+        ".prettierrc*",
+        ".prettierignore",
+        ".markdownlint*",
+        ".editorconfig",
+        "scripts/markdown.mjs"
+      ],
+      "tool": "markdownlint-cli2",
+      "events": [
+        "PostToolUse",
+        "Stop"
+      ],
+      "commands": [
+        {
+          "all": [
+            "npm",
+            "run",
+            "lint:markdown"
+          ],
+          "changed": [
+            "npm",
+            "run",
+            "lint:markdown",
+            "--",
+            "{files}"
+          ]
+        }
+      ],
+      "status": "connected",
+      "timeout": 300,
+      "file_paths": [
+        "**/*.md"
+      ]
+    },
+    {
+      "id": "data-validation",
+      "paths": [
+        "**/*.jsonl",
+        "app/src/main/assets/**",
+        "scripts/validate_data.py",
+        "tests/test_validate_data.py",
+        ".agents/skills/data-research/references/output-format.md"
+      ],
+      "tool": "調査 JSONL の構造・参照・原本パス検証",
+      "events": [
+        "PostToolUse",
+        "Stop"
+      ],
+      "commands": [
+        {
+          "all": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_validate_data.py"
+          ]
+        },
+        {
+          "all": [
+            "python3",
+            "scripts/validate_data.py"
+          ]
+        }
+      ],
+      "status": "connected",
+      "timeout": 300
+    },
+    {
+      "id": "android-build",
+      "paths": [
+        "app/**",
+        "**/*.gradle.kts",
+        "gradle/**"
+      ],
+      "tool": "Gradle Android build",
+      "events": [
+        "PostToolUse",
+        "Stop"
+      ],
+      "commands": [
+        {
+          "all": [
+            "./gradlew",
+            ":app:assembleDebug"
+          ]
+        }
+      ],
+      "status": "connected",
+      "timeout": 300
+    },
+    {
+      "id": "hook-tests",
+      "paths": [
+        "scripts/codex_hooks.py",
+        "tests/test_codex_hooks.py",
+        ".codex/hooks.json",
+        ".codex/hooks/checks.json"
+      ],
+      "tool": "Python unittest",
+      "events": [
+        "PostToolUse",
+        "Stop"
+      ],
+      "commands": [
+        {
+          "all": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_codex_hooks.py"
+          ]
+        }
+      ],
+      "status": "connected",
+      "timeout": 60
+    },
+    {
+      "id": "quality-script-tests",
+      "paths": [
+        "scripts/markdown.mjs",
+        "scripts/markdown.test.mjs",
+        "package.json",
+        "package-lock.json"
+      ],
+      "tool": "Node test runner",
+      "events": [
+        "PostToolUse",
+        "Stop"
+      ],
+      "commands": [
+        {
+          "all": [
+            "npm",
+            "run",
+            "test:quality"
+          ]
+        }
+      ],
+      "status": "connected",
+      "timeout": 60
+    },
+    {
+      "id": "distribution-tests",
+      "paths": [
+        "scripts/distribution.py",
+        "tests/test_distribution.py",
+        ".github/workflows/distribute.yml",
+        "app/build.gradle.kts"
+      ],
+      "tool": "Python unittest for APK distribution",
+      "events": [
+        "PostToolUse",
+        "Stop"
+      ],
+      "commands": [
+        {
+          "all": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_distribution.py"
+          ]
+        }
+      ],
+      "status": "connected",
+      "timeout": 60
+    }
+  ]
+}

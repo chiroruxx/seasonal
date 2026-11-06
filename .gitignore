@@ -15,6 +15,7 @@
 .cxx
 local.properties
 node_modules/
+/.quality-results/
 __pycache__/
 *.jks
 *.keystore

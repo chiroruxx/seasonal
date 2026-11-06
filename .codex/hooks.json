@@ -1,0 +1,29 @@
+{
+  "description": "変更時・完了時の品質チェック。実行にはhostでのhook信頼が必要。",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/scripts/codex_hooks.py\"",
+            "timeout": 2400,
+            "statusMessage": "Checking changed files"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/scripts/codex_hooks.py\"",
+            "timeout": 2400,
+            "statusMessage": "Checking final changes"
+          }
+        ]
+      }
+    ]
+  }
+}
