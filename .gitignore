@@ -14,3 +14,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+node_modules/
+__pycache__/
+*.jks
+*.keystore

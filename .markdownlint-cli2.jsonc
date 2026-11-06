@@ -1,0 +1,15 @@
+{
+  "config": {
+    "default": true,
+    "MD013": false,
+    "MD041": false,
+  },
+  "gitignore": true,
+  "overrides": [
+    {
+      "filter": ["docs/stories/*/README.md"],
+      "config": { "MD025": false },
+      "combine": "merge",
+    },
+  ],
+}

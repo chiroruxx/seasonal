@@ -1,0 +1,34 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", ":pinDigests"],
+  "timezone": "Asia/Tokyo",
+  "enabledManagers": ["gradle", "gradle-wrapper", "npm", "github-actions", "custom.regex"],
+  "automerge": false,
+  "prConcurrentLimit": 3,
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/^build\\.gradle\\.kts$/"],
+      "matchStrings": ["ktfmt\\(\"(?<currentValue>[0-9.]+)\"\\)"],
+      "depNameTemplate": "com.facebook:ktfmt",
+      "datasourceTemplate": "maven",
+      "versioningTemplate": "maven"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchManagers": ["gradle", "gradle-wrapper"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "Android dependencies and build tools"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "Markdown quality tools"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "GitHub Actions"
+    }
+  ]
+}

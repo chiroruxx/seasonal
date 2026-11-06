@@ -2,7 +2,7 @@
 
 組み込み image_gen を使用。ユーザー指定画像を絵柄の参考として入力。元画像のキャラクターや場面は使用しない。生成物は同じディレクトリの `*-v2.png`。前の画像も比較用に保存。
 
-参考画像 URL：https://d2hq8z6bbc4zk8.cloudfront.net/wp-content/uploads/2018/03/29171507/a0e640674976cdf15f0a315420d7b07e-min.png
+参考画像 URL：<https://d2hq8z6bbc4zk8.cloudfront.net/wp-content/uploads/2018/03/29171507/a0e640674976cdf15f0a315420d7b07e-min.png>
 
 ## radish-list-v2.png
 

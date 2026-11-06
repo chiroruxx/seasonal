@@ -4,17 +4,17 @@
 
 ## 色の役割
 
-| 用途 | 色ロール | 表現 |
-| --- | --- | --- |
-| 画面全体 | surface | 薄いクリーム色 |
-| 食材カード・説明図の面 | surfaceContainerLow | 背景より明るいアイボリー |
-| モーダルボトムシート | surfaceContainer | 少し深いクリーム色 |
-| 基本の文字・アイコン | onSurface | 濃い茶色寄りのニュートラル色 |
-| 補足の文字・アイコン | onSurfaceVariant | 基本文字より控えめなニュートラル色 |
-| 主な操作・強調 | primary | 落ち着いた橙 |
-| primary 上の文字・アイコン | onPrimary | primary と対になる色 |
-| アクセントの淡い面 | primaryContainer | 淡い橙 |
-| primaryContainer 上の文字・アイコン | onPrimaryContainer | primaryContainer と対になる色 |
+| 用途                                | 色ロール            | 表現                               |
+| ----------------------------------- | ------------------- | ---------------------------------- |
+| 画面全体                            | surface             | 薄いクリーム色                     |
+| 食材カード・説明図の面              | surfaceContainerLow | 背景より明るいアイボリー           |
+| モーダルボトムシート                | surfaceContainer    | 少し深いクリーム色                 |
+| 基本の文字・アイコン                | onSurface           | 濃い茶色寄りのニュートラル色       |
+| 補足の文字・アイコン                | onSurfaceVariant    | 基本文字より控えめなニュートラル色 |
+| 主な操作・強調                      | primary             | 落ち着いた橙                       |
+| primary 上の文字・アイコン          | onPrimary           | primary と対になる色               |
+| アクセントの淡い面                  | primaryContainer    | 淡い橙                             |
+| primaryContainer 上の文字・アイコン | onPrimaryContainer  | primaryContainer と対になる色      |
 
 ## 適用ルール
 

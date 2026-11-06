@@ -1,0 +1,25 @@
+{
+  "name": "seasonal-quality-tools",
+  "private": true,
+  "scripts": {
+    "format:markdown": "node scripts/markdown.mjs format",
+    "check:markdown": "node scripts/markdown.mjs check",
+    "lint:markdown": "node scripts/markdown.mjs lint",
+    "test:quality": "node --test scripts/markdown.test.mjs"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "0.24.0",
+    "prettier": "3.9.10"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "overrides": {
+    "markdownlint": {
+      "re2js": "2.8.7"
+    },
+    "micromark-extension-math": {
+      "katex": "0.18.2"
+    }
+  }
+}

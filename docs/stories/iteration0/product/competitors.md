@@ -4,18 +4,18 @@
 
 ## 用途が近い競合候補
 
-| アプリ / Google Play | 掲載説明で確認できた内容 | 比較したい点 |
-| --- | --- | --- |
-| [野菜見極め術](https://play.google.com/store/apps/details?hl=ja&id=com.jkscience.yasai) | 野菜・果物・肉・魚の選び方と旬の時期。スーパーなどでの利用を想定 | 今の旬へのアクセス、絵、説明の読みやすさ |
-| [In Season：旬の果物と野菜](https://play.google.com/store/apps/details?hl=ja&id=apace.seasonal) | 月ごとの旬、年間カレンダー、選び方、保存方法、気候帯による調整、通知 | 日本の食材・旬への対応と操作 |
-| [Redberi: Fruit & Produce Guide](https://play.google.com/store/apps/details?hl=ja&id=com.yellowsquared.redberi) | 写真付きの見極め方、地域の旬カレンダー、保存方法 | 日本向け情報、ことば・操作のわかりやすさ |
+| アプリ / Google Play                                                                                            | 掲載説明で確認できた内容                                             | 比較したい点                             |
+| --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------- |
+| [野菜見極め術](https://play.google.com/store/apps/details?hl=ja&id=com.jkscience.yasai)                         | 野菜・果物・肉・魚の選び方と旬の時期。スーパーなどでの利用を想定     | 今の旬へのアクセス、絵、説明の読みやすさ |
+| [In Season：旬の果物と野菜](https://play.google.com/store/apps/details?hl=ja&id=apace.seasonal)                 | 月ごとの旬、年間カレンダー、選び方、保存方法、気候帯による調整、通知 | 日本の食材・旬への対応と操作             |
+| [Redberi: Fruit & Produce Guide](https://play.google.com/store/apps/details?hl=ja&id=com.yellowsquared.redberi) | 写真付きの見極め方、地域の旬カレンダー、保存方法                     | 日本向け情報、ことば・操作のわかりやすさ |
 
 ## 対象地域・用途が異なる参考候補
 
-| アプリ / Google Play | 掲載説明で確認できた内容 | 位置づけ |
-| --- | --- | --- |
+| アプリ / Google Play                                                                                                | 掲載説明で確認できた内容                                  | 位置づけ                                             |
+| ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ---------------------------------------------------- |
 | [Seasonal Food Guide](https://play.google.com/store/apps/details?hl=ja&id=com.gracecommunicationsfoundation.sfgapp) | 米国50州の季節の食材検索、140種類以上の食材、リマインダー | 日本向けの直接競合としてではなく、旬を探す体験の参考 |
-| [旬ちゃんアプリ](https://play.google.com/store/apps/details?hl=ja&id=net.oishii_shinshu.Shunchan) | 長野県のブランド食材図鑑、クイズ、直売所マップ | 日本の地域食材図鑑の参考。月別の旬一覧の有無は未確認 |
+| [旬ちゃんアプリ](https://play.google.com/store/apps/details?hl=ja&id=net.oishii_shinshu.Shunchan)                   | 長野県のブランド食材図鑑、クイズ、直売所マップ            | 日本の地域食材図鑑の参考。月別の旬一覧の有無は未確認 |
 
 ## 企画への示唆（仮説）
 

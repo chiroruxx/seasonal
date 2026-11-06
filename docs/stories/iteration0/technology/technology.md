@@ -25,24 +25,24 @@ SQLite / Room は初期構成には採用しない。データ量や検索・更
 
 ## 採用技術
 
-| 項目 | 採用技術・構成 | このアプリでの用途・理由 |
-| --- | --- | --- |
-| 言語 | Kotlin | Android 向けの実装とテストを統一する |
-| UI | Jetpack Compose + Compose Material 3 | 食材一覧、テーマ、モーダルボトムシートを作る |
-| 状態管理 | ViewModel + StateFlow | 読み込んだ食材、現在月に応じた表示状態を画面に渡す |
-| 非同期処理 | Kotlin Coroutines | データ読み込みを UI から分離する |
-| 食材データ | アプリ同梱 JSON + kotlinx.serialization | 旬の月・選び方・出典などを管理し、通信なしで読めるようにする |
-| イラスト | アプリ同梱の画像リソース | 一覧用と説明用の絵を表示する |
-| データ取得の窓口 | Repository | UI とデータの保存形式を分離する |
-| 依存の受け渡し | コンストラクタと小さな手動コンテナ | 現在の規模に合わせて依存関係を明示する |
-| テスト | JUnit + Compose UI Test | 月またぎ・年またぎの旬判定、食材の選択とシート表示を確認する |
-| 受け入れテスト実行環境 | Gradle 管理の Android 16 エミュレーター | ローカルと CI で同じ条件の UI テストを実行する |
-| CI | GitHub Actions | PR のビルド・解析・テストを自動実行する |
-| 依存関係の更新 | Renovate | Gradle・npm などの更新 PR を作成する |
-| Kotlin の整形 | Spotless + ktfmt | Kotlin・Gradle Kotlin DSL の整形を統一する |
-| Android の静的解析 | Android Lint | API・リソースなどを検査する |
-| Markdown の検査・整形 | markdownlint-cli2 + Prettier | ドキュメントの記述と整形を統一する |
-| エディター設定 | .editorconfig | 改行・インデントなどを統一する |
+| 項目                   | 採用技術・構成                          | このアプリでの用途・理由                                     |
+| ---------------------- | --------------------------------------- | ------------------------------------------------------------ |
+| 言語                   | Kotlin                                  | Android 向けの実装とテストを統一する                         |
+| UI                     | Jetpack Compose + Compose Material 3    | 食材一覧、テーマ、モーダルボトムシートを作る                 |
+| 状態管理               | ViewModel + StateFlow                   | 読み込んだ食材、現在月に応じた表示状態を画面に渡す           |
+| 非同期処理             | Kotlin Coroutines                       | データ読み込みを UI から分離する                             |
+| 食材データ             | アプリ同梱 JSON + kotlinx.serialization | 旬の月・選び方・出典などを管理し、通信なしで読めるようにする |
+| イラスト               | アプリ同梱の画像リソース                | 一覧用と説明用の絵を表示する                                 |
+| データ取得の窓口       | Repository                              | UI とデータの保存形式を分離する                              |
+| 依存の受け渡し         | コンストラクタと小さな手動コンテナ      | 現在の規模に合わせて依存関係を明示する                       |
+| テスト                 | JUnit + Compose UI Test                 | 月またぎ・年またぎの旬判定、食材の選択とシート表示を確認する |
+| 受け入れテスト実行環境 | Gradle 管理の Android 16 エミュレーター | ローカルと CI で同じ条件の UI テストを実行する               |
+| CI                     | GitHub Actions                          | PR のビルド・解析・テストを自動実行する                      |
+| 依存関係の更新         | Renovate                                | Gradle・npm などの更新 PR を作成する                         |
+| Kotlin の整形          | Spotless + ktfmt                        | Kotlin・Gradle Kotlin DSL の整形を統一する                   |
+| Android の静的解析     | Android Lint                            | API・リソースなどを検査する                                  |
+| Markdown の検査・整形  | markdownlint-cli2 + Prettier            | ドキュメントの記述と整形を統一する                           |
+| エディター設定         | .editorconfig                           | 改行・インデントなどを統一する                               |
 
 機能の受け入れ条件は Compose UI Test で自動化する。日付・データを固定した操作テストと、実際の同梱 JSON の確認を分ける。見た目・使いやすさ・情報の正しさは人による確認も行う。詳細は[テスト方針](testing.md)を参照。
 
