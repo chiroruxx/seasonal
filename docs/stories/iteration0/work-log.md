@@ -22,3 +22,11 @@
 - 確認済み原因：Repository が中断に協調しない場合に備えた、状態更新直前の中断確認が不足していた。
 - 試行と結果：成功経路へ中断確認を追加した後、例外経路にも同じ不足があると再レビューで指摘された。両経路を修正し、古い成功・失敗のそれぞれが新しい状態を上書きしない回帰テストを追加した。
 - 根拠：`HomeViewModel.kt`、`HomeViewModelTest.kt` と `.quality-results/1794102473225892000-02d109b6/report.json`。単体テスト6件、UI テスト5件が成功し、再レビューでも指摘解消を確認した。
+
+## GitHub 接続と CI の初回確認（2026-11-08）
+
+- 事象：HTTPS の初回 push が HTTP 400・接続切断で失敗し、HTTP/1.1 を指定した再試行も切断された。履歴内の最大ファイルは約3.5 MBで、100 MiB超のファイルはなかった。原因は特定していない。
+- 対応と結果：人間が SSH のリモートへ切り替えて push を完了。GitHub とローカルの `main` が `249763b` で一致することを確認した。
+- 事象：既定ブランチを `main` に変更した一方、CI の push 対象と運用手順に `master` が残り、初回 push では CI が起動しなかった。
+- 対応と根拠：現行設定・手順を `main` へ揃え、独立レビュー後に [PR #1](https://github.com/chiroruxx/seasonal/pull/1) を作成。対象コミットは `8cd53a9`。IDE のユーザー変更とステージ状態は保持した。
+- 検証結果：[CI 実行 42462965709](https://github.com/chiroruxx/seasonal/actions/runs/42462965709) で Quality checks・Android checks がともに成功。CI 用 Debug APK とテストレポートの保存も確認した。PR は未マージ。
