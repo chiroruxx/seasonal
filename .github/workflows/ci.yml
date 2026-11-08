@@ -61,9 +61,12 @@ jobs:
           log-accepted-android-sdk-licenses: false
       - name: Enable hardware acceleration
         run: |
+          set -x
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
           sudo udevadm control --reload-rules
-          sudo udevadm trigger --name-match=kvm
+          sudo udevadm trigger --name-match=kvm --settle
+          if [ -e /dev/kvm ]; then ls -l /dev/kvm; else echo "/dev/kvm is missing"; fi
+          id
           test -r /dev/kvm && test -w /dev/kvm
       - name: Check formatting, lint, unit tests, and build
         run: ./gradlew --no-daemon spotlessCheck :app:lintDebug :app:testDebugUnitTest :app:assembleDebug
