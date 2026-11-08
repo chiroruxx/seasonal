@@ -34,7 +34,7 @@
 4. coder が各ステップを順に実装する。ステップごとに独立レビュー、指摘修正・再レビューを完了してから次へ進む。
 5. 全ステップの完了後、reviewer が `pre-pr-check` スキルで最終確認する。メインが成功を確認した後、別の作業エージェントへ `pull-request` スキルで全ステップの PR 作成・更新を依頼する。PR は GitHub の Stacked pull requests として作成する。
 6. スタック全体とストーリー全体の検証結果、確認対象コミットに対応する APK・操作手順を提示する。人間が UI・UX を確認して受け入れる。
-7. 人間がストーリーを受け入れた後、次のストーリーへ着手する前に、メインが [process-improvement スキル](.agents/skills/process-improvement/SKILL.md)に従って改善を判断・更新し、別のレビュー担当が独立レビューする。改善候補があれば、別のPR作成担当が [pull-request スキル](.agents/skills/pull-request/SKILL.md)に従って通常の `master` 向け改善PRを作成する。受け入れ済み機能スタックとは独立させ、マージは人間が行う。候補がなければ変更なしで完了する。
+7. 人間がストーリーを受け入れた後、次のストーリーへ着手する前に、メインが [process-improvement スキル](.agents/skills/process-improvement/SKILL.md)に従って改善を判断・更新し、別のレビュー担当が独立レビューする。改善候補があれば、別のPR作成担当が [pull-request スキル](.agents/skills/pull-request/SKILL.md)に従って通常の `main` 向け改善PRを作成する。受け入れ済み機能スタックとは独立させ、マージは人間が行う。候補がなければ変更なしで完了する。
 
 ストーリーは直列に進め、受け入れ後に改善工程を完了してから次へ着手する。PR の統合とストーリーの受け入れは別に扱う。機能PRは Stack、改善PRは通常PRとする。
 
