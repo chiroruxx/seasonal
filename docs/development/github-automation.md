@@ -2,7 +2,7 @@
 
 ## CI
 
-[CI ワークフロー](../../.github/workflows/ci.yml)は、PR、`master` への push、手動実行で動作する。
+[CI ワークフロー](../../.github/workflows/ci.yml)は、PR、`main` への push、手動実行で動作する。
 
 - `quality` は Node.js 22 で npm の依存関係を復元し、監査、Markdown の整形確認・lint、品質ツールのテスト、Python のテスト、調査データの検証を行う。
 - `android` は JDK 21 と Android SDK を使い、Spotless、Android Lint、単体テスト、Android 16 の管理端末による受け入れテスト、Debug APK のビルドを行う。
@@ -69,7 +69,7 @@ gh secret set --env apk-signing SEASONAL_DEBUG_KEY_PASSWORD
 次の `COMMIT_SHA` を確認対象の完全な SHA に置き換えて実行する。
 
 ```sh
-gh workflow run distribute.yml --ref master -f story=iteration0 -f commit=COMMIT_SHA
+gh workflow run distribute.yml --ref main -f story=iteration0 -f commit=COMMIT_SHA
 ```
 
 ワークフローは Secrets から一時領域に鍵を復元し、署名と applicationId・versionCode を検証して APK を保存する。
