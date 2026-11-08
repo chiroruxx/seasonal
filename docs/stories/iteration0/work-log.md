@@ -30,3 +30,10 @@
 - 事象：既定ブランチを `main` に変更した一方、CI の push 対象と運用手順に `master` が残り、初回 push では CI が起動しなかった。
 - 対応と根拠：現行設定・手順を `main` へ揃え、独立レビュー後に [PR #1](https://github.com/chiroruxx/seasonal/pull/1) を作成。対象コミットは `8cd53a9`。IDE のユーザー変更とステージ状態は保持した。
 - 検証結果：[CI 実行 42462965709](https://github.com/chiroruxx/seasonal/actions/runs/42462965709) で Quality checks・Android checks がともに成功。CI 用 Debug APK とテストレポートの保存も確認した。PR は未マージ。
+
+## Gradle のダウンロードタイムアウト（2026-11-08）
+
+- 事象：PR #1 のマージ後、[main の CI 実行 42464473595](https://github.com/chiroruxx/seasonal/actions/runs/42464473595) が Android チェックの開始時に失敗した。アプリの検査・テストには到達していない。
+- 確認済み原因：Gradle Wrapper が Gradle 9.3.1 の配布物を取得する際、`networkTimeout=10000` に対応する10秒の読み取りタイムアウトが発生した。通信が遅れた原因は未特定。
+- 採用する対応：Wrapper の `networkTimeout` を60秒に延長する。Gradle のバージョンやテスト条件は変えず、取得失敗を成功扱いにしない。
+- 試行と結果：初回の main 実行でタイムアウトを確認。修正後の検証は、対応する PR の CI 結果を根拠とする。
